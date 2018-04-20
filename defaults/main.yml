@@ -11,7 +11,7 @@ jdk_package_url: http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec
 jdk_package_name: jdk-8u172-linux-x64.rpm
 
 # Package checksum (OPTIONAL)
-jdk_package_checksum: 'sha256:6a27b5718a5266cc725478d0b2e30fdc9bdb74b4e496971ed0f3b9c334d08163'
+#jdk_package_checksum: 'sha256:6a27b5718a5266cc725478d0b2e30fdc9bdb74b4e496971ed0f3b9c334d08163'
 
 # Folder name in which the JDK is extracted
 jdk_dir_name: jdk1.8.0_172-amd64
