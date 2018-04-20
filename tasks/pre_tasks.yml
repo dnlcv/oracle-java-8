@@ -1,0 +1,45 @@
+---
+- name: 'Check if directory {{ jdk_dir_path }} exists'
+  stat:
+    path: '{{ jdk_dir_path }}'
+  register: rootdir
+  tags:
+    - oracle_java
+
+- name: 'Create directory {{ jdk_dir_path }}'
+  file:
+    name: "{{ jdk_dir_path }}"
+    state: directory
+  when: rootdir.stat.exists == False
+  tags:
+    - oracle_java
+
+- name: "Check if {{ jdk_home }}/bin/java exists"
+  stat:
+    path: '{{ jdk_home }}/bin/java'
+  register: target
+  tags:
+    - oracle_java
+
+- debug:
+    msg: '{{ jdk_home }}/bin/java does exist!'
+  when:
+    - target.stat.exists == True
+    - target.stat.isreg
+  tags:
+    - oracle_java
+
+- name: Check if a system alternative for Java already exist 
+  stat:
+    path: /etc/alternatives/java
+  register: alternative
+  tags:
+    - oracle_java
+
+- debug:
+    msg: "/etc/alternatives/java is defined and points to {{ alternative.stat.lnk_target }}"
+  when:
+    - alternative.stat.islnk is defined
+    - alternative.stat.islnk
+  tags:
+    - oracle_java

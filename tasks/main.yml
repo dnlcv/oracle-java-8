@@ -1,0 +1,20 @@
+---
+- include_tasks: enterprise_linux.yml
+  when:
+    - ansible_os_family == 'RedHat'
+    - jdk_install_type == 'yum' 
+  tags:
+    - oracle_java
+
+- include_tasks: debian.yml
+  when:
+    - ansible_os_family == 'Debian'
+    - jdk_install_type == 'tarball' 
+  tags:
+    - oracle_java
+
+- fail:
+  msg: 'ERROR: {{ ansible_os_family }} is not supported by the Oracle-Java-8 module'
+  when:
+    - ansible_os_family != 'RedHat'
+    - ansible_os_family != 'Debian'

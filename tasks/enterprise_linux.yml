@@ -1,0 +1,24 @@
+---
+- import_tasks: pre_tasks.yml
+
+- name: 'Downloading Java JDK package from: {{ jdk_package_url }}'
+  get_url:
+    url: '{{ jdk_package_url }}'
+    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+    dest: '/tmp/{{ jdk_package_name }}'
+    checksum: '{{ jdk_package_checksum | default(omit) }}'
+  when: (target.stat.exists == False) or
+        (alternative.stat.islnk is not defined)
+  tags:
+    - oracle_java
+
+- name: Install Java JDK package
+  yum:
+    name: '/tmp/{{ jdk_package_name }}'
+    state: present
+  when: (target.stat.exists == False) or
+        (alternative.stat.islnk is not defined)
+  tags:
+    - oracle_java
+
+- import_tasks: pre_tasks.yml
