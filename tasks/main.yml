@@ -6,9 +6,9 @@
   tags:
     - oracle_java
 
-- include_tasks: debian.yml
+- include_tasks: generic.yml
   when:
-    - ansible_os_family == 'Debian'
+    - (ansible_os_family == 'Debian' or ansible_os_family == 'RedHat')
     - jdk_install_type == 'tarball' 
   tags:
     - oracle_java
