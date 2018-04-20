@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Daniel Campos
+  description: Ansible role to install the Oracle Java 8 JDK
+  company: Bodybuilding.com
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions:
+      - all
+    - name: Debian
+      versions:
+      - all
+  categories:
+    - development
+    - system
+  galaxy_tags:
+    - jdk
+		- java
+		- jre
+		- oracle
+		- sun
+    - java_8
+    - jdk_8
+    - oracle_java
+    - oracle_jdk
+
+  dependencies: []
