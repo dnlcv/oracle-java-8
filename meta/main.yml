@@ -17,10 +17,10 @@ galaxy_info:
     - system
   galaxy_tags:
     - jdk
-		- java
-		- jre
-		- oracle
-		- sun
+    - java
+    - jre
+    - oracle
+    - sun
     - java_8
     - jdk_8
     - oracle_java
