@@ -21,4 +21,14 @@
   tags:
     - oracle_java
 
-- import_tasks: pre_tasks.yml
+- name: Set the correct Java JDK package
+  alternatives:
+    link: /usr/bin/java
+    name: java
+    path: '{{ target.stat.path }}'
+    priority: 200000
+  when: (alternative.stat.lnk_target != target.stat.path)
+  tags:
+    - oracle_java
+
+- import_tasks: post_tasks.yml

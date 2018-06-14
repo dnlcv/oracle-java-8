@@ -35,6 +35,7 @@
     name: '{{ item.path | basename }}'
     link: '/usr/bin/{{ item.path | basename }}'
     path: '{{ item.path }}'
+    priority: 200000
   with_items:
     - '{{ binaries.files | default([]) }}'
   tags:

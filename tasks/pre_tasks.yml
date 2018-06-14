@@ -14,15 +14,15 @@
   tags:
     - oracle_java
 
-- name: "Check if {{ jdk_home }}/bin/java exists"
+- name: "Check if {{ jdk_home }}/jre/bin/java exists"
   stat:
-    path: '{{ jdk_home }}/bin/java'
+    path: '{{ jdk_home }}/jre/bin/java'
   register: target
   tags:
     - oracle_java
 
 - debug:
-    msg: '{{ jdk_home }}/bin/java does exist!'
+    msg: '{{ jdk_home }}/jre/bin/java does exist!'
   when:
     - target.stat.exists == True
     - target.stat.isreg
