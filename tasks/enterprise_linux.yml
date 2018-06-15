@@ -25,7 +25,7 @@
   alternatives:
     link: /usr/bin/java
     name: java
-    path: '{{ target.stat.path }}'
+    path: '{{ jdk_home }}/jre/bin/java'
     priority: 200000
   tags:
     - oracle_java
