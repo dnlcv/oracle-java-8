@@ -27,7 +27,7 @@
     name: java
     path: '{{ target.stat.path }}'
     priority: 200000
-  when: (alternative.stat.lnk_target != target.stat.path)
+  when: ( alternative.stat.lnk_target|string() != target.stat.path|string() )
   tags:
     - oracle_java
 
