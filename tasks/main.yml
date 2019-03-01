@@ -14,7 +14,7 @@
     - oracle_java
 
 - fail:
-  msg: 'ERROR: {{ ansible_os_family }} is not supported by the Oracle-Java-8 module'
+    msg: 'ERROR: {{ ansible_os_family }} is not supported by the Oracle-Java-8 module'
   when:
     - ansible_os_family != 'RedHat'
     - ansible_os_family != 'Debian'
